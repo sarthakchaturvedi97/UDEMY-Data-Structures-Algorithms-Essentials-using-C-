@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+void getSorted(int &idx,int x,vector<int> v,int st,int end)
+{
+    int mid=(st+end)/2;
+    if(v[mid]==x)
+    {
+        idx=mid;
+        return;
+    }
+    
+    if(v[mid]>=x)
+    getSorted(idx,x,v,st,mid-1);
+    else
+    getSorted(idx,x,v,mid+1,end);
+    return;
+}
+int binarySearch(vector<int> v, int x)
+{
+    // your code goes here
+    int idx=-1;
+    getSorted(idx,x,v,0,v.size());
+    return idx;
+    
+}
