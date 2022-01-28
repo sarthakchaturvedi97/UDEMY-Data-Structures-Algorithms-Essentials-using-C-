@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+public:
+	int data;
+	node* next;
+
+	node(int data){
+		this->data = data;
+		next = NULL;
+	}
+};
+
+node* deleteTail(node * head){
+    if(!head)
+    return NULL;
+    
+    
+    if(!head->next)
+    {
+        delete (head);
+        return NULL;
+    }
+     node *temp=head;
+    while(temp->next->next)
+    {
+        temp=temp->next;
+    }
+    delete (temp->next);
+    temp->next=NULL;
+    return head;
+    
+}
+
