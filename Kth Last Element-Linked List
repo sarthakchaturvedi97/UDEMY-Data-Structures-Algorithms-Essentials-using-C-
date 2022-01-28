@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+public:
+	int data;
+	node* next;
+
+	node(int data){
+		this->data = data;
+		next = NULL;
+	}
+};
+
+int kthLastElement(node * head,int k){
+    //Complete this function to return kth last element
+     node *slow=head;
+    node *fast=head;
+    while(k--)
+    {
+        slow=slow->next;
+    }
+    while(slow)
+    {
+        fast=fast->next;
+        slow=slow->next;
+    }
+    return fast->data;
+    
+}
