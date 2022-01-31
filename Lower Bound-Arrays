@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int lowerBound(vector<int> A, int Val) {
+    // your code goes here
+    int min_diff=INT_MAX,sm=INT_MAX;
+    int val=0;
+    for(int i=0;i<A.size();i++)
+    {
+        sm=min(sm,A[i]);
+        if(Val==A[i])
+        return Val;
+        
+        if(Val-A[i]>0&&Val-A[i]<min_diff)
+        {
+            val=A[i];
+            min_diff=Val-A[i];
+        }
+        
+    }
+    
+    if(val<sm)
+    return -1;
+    
+    return val;
+    
+}
