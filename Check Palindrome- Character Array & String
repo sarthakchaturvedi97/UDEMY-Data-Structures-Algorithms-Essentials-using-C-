@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPalindrome(string str)
+{
+    // your code goes here
+    int st=0,end=str.length()-1;
+    while(st<end)
+    {
+        if(str[st]!=str[end])
+        return false;
+        
+        st++;
+        end--;
+    }
+    return true;
+}
