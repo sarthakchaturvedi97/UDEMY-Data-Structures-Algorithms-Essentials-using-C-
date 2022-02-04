@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int binaryToDecimal(string s)
+{
+    // your code goes here
+    reverse(s.begin(),s.end());
+    int num=0,count=0;
+    for(int i=0;i<s.length();i++)
+    {
+        num+=pow(2,count++)*(s[i]-'0');
+    }
+    return num;
+}
