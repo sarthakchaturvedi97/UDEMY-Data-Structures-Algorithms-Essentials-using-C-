@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool compare(pair<string,int> p,pair<string,int> p2)
+{
+    return p.second<p2.second;
+}
+bool compare2(pair<string,int> p,pair<string,int> p2)
+{
+    return p.first<p2.first;
+}
+vector<pair<string,int>> sortFruits(vector<pair<string,int>> v, string S){
+    // your code  goes here
+    if(S=="price")
+    {
+        sort(v.begin(),v.end(),compare);
+    }
+    else
+    {
+        sort(v.begin(),v.end(),compare2);
+    }
+    return v;
+}
