@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool compare(pair<int,int> p,pair<int,int> p2)
+{
+    return p.first*p.first+p.second*p.second<p2.first*p2.first+p2.second*p2.second;
+}
+vector<pair<int,int>> sortCabs(vector<pair<int,int>> v){
+    // your code  goes here
+    sort(v.begin(),v.end(),compare);
+    return v;
+}
