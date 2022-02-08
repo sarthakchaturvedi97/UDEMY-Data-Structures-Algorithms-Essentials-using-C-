@@ -1,0 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int earthLevel(int k)
+{
+    //your code goes here
+    return __builtin_popcount(k);
+}
