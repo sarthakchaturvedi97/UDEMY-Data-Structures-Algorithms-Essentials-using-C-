@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int reverse(int n){
+    stack<int> st;
+    while(n)
+    {
+        st.push(n%10);
+        n/=10;
+    }
+    int i=1;
+	while(!st.empty())
+	{
+	    n=n+st.top()*i;
+	    i*=10;
+	    st.pop();
+	}
+	return n;
+}
