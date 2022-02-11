@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+  public:
+   int key;
+   Node *left;
+   Node *right;
+
+   Node(int key){
+       this->key = key;
+       left = right  = NULL;
+   }
+};
+bool getBST(Node *root,int min,int max)
+{
+    if(!root)
+    return true;
+    
+    if(root->key>min&&root->key<max&&getBST(root->left,min,root->key)&&getBST(root->right,root->key,max))
+    return true;
+    else
+    return false;
+}
+bool isBST(Node * root){
+    //complete this method
+  return getBST(root,INT_MIN,INT_MAX);
+}
