@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+queue<int> interLeave(queue<int> q){
+    stack<int> st;
+    int hf=q.size()/2;
+    for(int i=0;i<hf;i++)
+    {
+        st.push(q.front());
+        q.pop();
+    }
+    while(!st.empty())
+    {
+        q.push(st.top());
+        st.pop();
+    }
+    for(int i=0;i<hf;i++)
+    {
+        q.push(q.front());
+        q.pop();
+    }
+    
+    for(int i=0;i<hf;i++)
+    {
+        st.push(q.front());
+        q.pop();
+    }
+    while(!st.empty())
+    {
+        q.push(st.top());
+        st.pop();
+        q.push(q.front());
+        q.pop();
+    }
+    return q;
+}
