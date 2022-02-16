@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *next;
+    node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
+ 
+int length(node *head)
+{
+    if(!head)
+    {
+        return 0;
+    }
+    
+    return 1+length(head->next);
+}
+node* bubble_sort_LinkedList_itr(node* head)
+{
+    // your code goes here
+    int l=length(head);
+    for(int i=0;i<=l-1;i++)
+    {
+        node *prev=NULL;
+        node *curr=head;
+        node *n;
+        while(curr&&curr->next)
+        {
+            n=curr->next;
+            if(curr->data>n->data)
+            {
+                if(!prev)
+                {
+                    curr->next=n->next;
+                    n->next=curr;
+                    head=prev=n;
+                }
+                else
+                {
+                    curr->next=n->next;
+                    n->next=curr;
+                    prev->next=n;
+                    prev=n;
+                }
+            }
+            else
+            {
+                prev=curr;
+                curr=n;
+            }
+        }
+    }
+    return head;
+}
+ 
