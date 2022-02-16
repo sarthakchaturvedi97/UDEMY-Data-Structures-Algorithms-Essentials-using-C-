@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class node{
+public:
+	int data;
+	node* next;
+
+	node(int data){
+		this->data = data;
+		next = NULL;
+	}
+};
+
+node* alternateMerge(node * root1, node* root2){
+    //Complete this function 
+    if(!root1&&!root2)
+    return root1;
+    else
+    if(!root1&&root2)
+    return root2;
+    else
+    if(!root2&&root1)
+    return root1;
+    node *temp=new node(0);
+    node *temp2=temp;
+    while(root1&&root2)
+    {
+        temp->next=root1;
+        temp=temp->next;
+        root1=root1->next;
+        temp->next=root2;
+        root2=root2->next;
+        temp=temp->next;
+    }
+    
+    if(root1)
+    temp->next=root1;
+    
+    if(root2)
+    temp->next=root2;
+    
+    return temp2->next;
+}
